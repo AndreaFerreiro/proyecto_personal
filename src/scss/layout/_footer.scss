@@ -1,8 +1,17 @@
-.page__footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100vw;
-  padding: 1rem;
-  color: $color-secondary;
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    &__containertext{
+        &--paragraph{
+            font-size: 13px;
+            color: $pinkish-grey;
+        }
+    }
+    &__containerimg{
+        &--logo{
+            width: 60px;
+        }
+    }
 }

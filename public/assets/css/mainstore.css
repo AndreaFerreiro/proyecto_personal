@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+.header {
+  display: flex;
+  justify-content: center;
+  height: 60px;
+  background-color: #114e4e;
+  align-items: center; }
+  .header__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    gap: 15px;
+    text-transform: capitalize; }
+
+a {
+  text-decoration: none;
+  color: #f5f5f5; }
+
+.container {
+  background-color: #438792;
+  height: 150px;
+  margin: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px; }
+  .container__title {
+    font-family: 'Roboto', sans-serif; }
+  .container__form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center; }
+    .container__form--submit {
+      background-color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 20px;
+      text-transform: uppercase;
+      font-size: 10px; }
+
+.title-categories {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  margin-top: 40px; }
+
+.categories {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  -moz-column-gap: 10px;
+  column-gap: 10px;
+  row-gap: 10px;
+  margin: 20px 40px; }
+  .categories__cat {
+    background-image: url(../images/calendario.jpeg);
+    border-radius: 10px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+
+.newarticle {
+  margin: 40px 40px;
+  background-color: #438792;
+  border-radius: 20px;
+  padding: 20px; }
+  .newarticle__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    margin: 20px;
+    text-align: center; }
+
+.articleform {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center; }
+  .articleform__label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; }
+    .articleform__label--input {
+      height: 30px; }
+  .articleform__submit {
+    padding: 10px 20px;
+    background-color: white;
+    border: none;
+    border-radius: 20px; }
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px; }
+  .footer__containertext--paragraph {
+    font-size: 13px;
+    color: #c5c5c5; }
+  .footer__containerimg--logo {
+    width: 60px; }
+
+/*font-family: 'Montserrat', sans-serif;
+font-family: 'Roboto', sans-serif;*/
+
+/*# sourceMappingURL=mainstore.css.map */

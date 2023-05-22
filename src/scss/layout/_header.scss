@@ -1,5 +1,19 @@
-.page__header {
-  display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 3rem;
+.header{
+    display: flex;
+    justify-content: center;
+    height: 60px;
+    background-color: $dark-green-blue;
+    align-items: center;
+    &__list{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        list-style: none;
+        gap: 15px;
+        text-transform: capitalize;
+    }
+}
+a{
+    text-decoration: none;
+    color: $white-four;
 }

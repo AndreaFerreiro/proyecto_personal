@@ -1,8 +1,9 @@
 .landingpage{
-  background-color: white;
+  background-color: $white-four;
   display: flex;
   height: 100vh;
   justify-content: center;
+  align-items: center;
 }
 .landingContainer{
   display: flex;
@@ -10,7 +11,7 @@
   align-items: center;
   gap: 30px;
   &__logo{
-    width: 200px;
+    width: 150px;
   }
   &__article{
     text-align: center;
@@ -22,6 +23,13 @@
     }
     &--paragraph{
       font-size: 16px;
+      font-family: 'Montserrat', sans-serif;
     }
+  }
+  &__buttom{
+    background-color: $light-grey-blue;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: none;
   }
 }
