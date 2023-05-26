@@ -43,15 +43,19 @@
     <form class="articleform">
         <label class="articleform__label" id="name">
             <span id="name">Nombre del artículo:</span>
-            <input class="articleform__label--input" type="text" placeholder="Nombre articulo" id="name" name="name">
+            <input class="articleform__label--input input_name" type="text" placeholder="Nombre articulo" id="name" name="name">
         </label>
         <label class="articleform__label" id="ref">
             <span id="ref">Referencia del artículo:</span>
-            <input class="articleform__label--input" type="text" placeholder="Ref" id="ref" name="ref">
+            <input class="articleform__label--input input_ref" type="text" placeholder="Ref" id="ref" name="ref">
         </label>
         <label class="articleform__label" id="categorie">
             <span id="categorie">En que categoría deseas colocarlo?</span>
-            <input class="articleform__label--input" type="text" placeholder="Categoria" id="categorie" name="categorie">
+            <input class="articleform__label--input input_cat" type="text" placeholder="Categoria" id="categorie" name="categorie">
+        </label>
+        <label class="articleform__label" id="categorie">
+            <span id="stock">Con cuánto stock cuentas?</span>
+            <input class="articleform__label--input input_stock" type="number" placeholder="Stock" id="categorie" name="categorie">
         </label>
         <input class="articleform__submit" type="submit">
     </form>
@@ -65,44 +69,18 @@
                 </div>
                 <div class="dataelement__text">
                     <p class="dataelement__text--title">Nombre del artículo</p>
-                    <p class="dataelement__text--ref">Ref:________</p>
-                    <p class="dataelement__text--cat">Categoría:_____</p>
-                </div>
-            </article>
-        </li>
-        <li class="data__containerlist--element">
-            <article class="dataelement">
-                <div class="dataelement__img">
-                    <img class="dataelement__img--src" src=""/>
-                </div>
-                <div class="dataelement__text">
-                    <p class="dataelement__text--title">Nombre del artículo</p>
-                    <p class="dataelement__text--ref">Ref:________</p>
-                    <p class="dataelement__text--cat">Categoría:_____</p>
-                </div>
-            </article>
-        </li>
-        <li class="data__containerlist--element">
-            <article class="dataelement">
-                <div class="dataelement__img">
-                    <img class="dataelement__img--src" src=""/>
-                </div>
-                <div class="dataelement__text">
-                    <p class="dataelement__text--title">Nombre del artículo</p>
-                    <p class="dataelement__text--ref">Ref:________</p>
-                    <p class="dataelement__text--cat">Categoría:_____</p>
-                </div>
-            </article>
-        </li>
-        <li class="data__containerlist--element">
-            <article class="dataelement">
-                <div class="dataelement__img">
-                    <img class="dataelement__img--src" src=""/>
-                </div>
-                <div class="dataelement__text">
-                    <p class="dataelement__text--title">Nombre del artículo</p>
-                    <p class="dataelement__text--ref">Ref:________</p>
-                    <p class="dataelement__text--cat">Categoría:_____</p>
+                    <div class="dataelement__text--ref">
+                        <p class="dataelement__text--questionref">Ref:</p>
+                        <p class="dataelement__text--answerref">75854879</p>
+                    </div>
+                    <div class="dataelement__text--cat">
+                        <p class="dataelement__text--questioncat">Categoría:</p>
+                        <p class="dataelement__text--answercat">Objetos</p>
+                    </div>
+                    <div class="dataelement__text--stock">
+                        <p class="dataelement__text--questionstock">Stock:</p>
+                        <p class="dataelement__text--answerstock">20</p>
+                    </div>
                 </div>
             </article>
         </li>

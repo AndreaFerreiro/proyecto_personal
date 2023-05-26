@@ -94,8 +94,41 @@
         &--element{
             border: 1px solid black;
             list-style: none;
-            width: 300px;
+            width: 80vw;
+            height: fit-content;
             margin-bottom: 20px;
+            background-color: $white-four;
+            border-radius: 5px;
+        }
+    }
+}
+.dataelement{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding: 10px;
+    &__img{
+        border: 1px solid black;
+        width: 100px;
+        height: 100px;
+    }
+    &__text{
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        &--title{
+            font-weight: bold;
+        }
+        &--ref{
+            display: flex;
+            gap: 10px;
+        }
+        &--cat{
+            display: flex;
+            gap: 10px;
+        }
+        &--stock{
+            display: flex;
+            gap: 10px;
         }
     }
 }

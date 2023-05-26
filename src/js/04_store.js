@@ -18,8 +18,3 @@ function newElement (event) => {
         
     }
 }
-'use strict';
-
-console.log('>> Ready :)');
-
-//# sourceMappingURL=main.js.map
