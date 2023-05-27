@@ -25,7 +25,30 @@
       </nav>
     </header>
 
-    Aquí irá la página de notas
+    <main class="main">
+        <section class="containerlist">
+            <h2 class="containerlist__title">Notas</h2>
+            <form class="containerlist__form">
+                <h3>Nueva nota</h3> 
+                <label class="form__date" id="name">
+                    <span class="form__date--question" id="name">Fecha:</span>
+                    <input class="form__date--input" type="date" id="name" name="name">
+                </label>
+                <label class="form__note" id="name">
+                    <span class="form__note--question" id="name">Nota</span>
+                    <input class="form__note--input" placeholder="Texto nota" id="name" name="name">
+                </label>
+                <input type="submit" value="Guardar" class="form__submit">
+                <p class="errormessage"></p>
+            </form>
+            <ul class="noteslist">
+                <li class="noteslist__element">
+                    <p class="noteslist__element--date">Fecha</p>
+                    <p class="noteslist__element--text">Texto de la nota</p>
+                </li>
+            </ul>
+        </section>
+    </main>
     <footer class="footer">
       <div class="footer__containertext">
         <p class="footer__containertext--paragraph">Tu almacén virtual &copy;2023</p>
@@ -35,5 +58,6 @@
       </div>
     </footer>
 
+    <script src="./assets/js/main.js"></script>
 </body>
 </html>

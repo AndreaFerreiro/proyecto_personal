@@ -1,4 +1,3 @@
-'use strict'
 const inputName = document.querySelector('.input_name');
 const inputRef = document.querySelector('.input_ref');
 const inputCat = document.querySelector ('.input_cat');
