@@ -5,18 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tu almacén virtual</title>
+    <script
+      src="https://kit.fontawesome.com/5168f8ef34.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="./assets/css/mainstore.css">
 </head>
 <body>
     <header class="header">
-      <a href="../inicio.html"><img class="header__logo" src="../assets/images/logosca 2.jpeg"/></a>
+      <a href="../inicio.html" title="Inicio"><img class="header__logo" src="../assets/images/logosca 2.jpeg"/></a>
       <nav>
         <ul class="header__list">
-          <a href=""><li class="header__list--element">calendario</li></a>
-          <a href="../almacen.html"><li class="header__list--element">almacén</li></a>
-          <a href=""><li class="header__list--element">notas</li></a>
-          <a href=""><li class="header__list--element">pedidos</li></a>
-          <a href=""><li class="header__list--element">perfil</li></a>
+          <a href="../calendario.html" title="Calendario"><li class="header__list--element">calendario</li></a>
+          <a href="../almacen.html" title="Almacén"><li class="header__list--element">almacén</li></a>
+          <a href="../notes.html" title="Notas"><li class="header__list--element">notas</li></a>
+          <a href="" title="Pedidos"><li class="header__list--element">pedidos</li></a>
+          <a href="" title="Perfil"><li class="header__list--element">perfil</li></a>
         </ul>
       </nav>
     </header>
@@ -80,7 +84,9 @@
                 <span id="stock">Con cuánto stock cuentas?</span>
                 <input class="articleform__label--input input_stock" type="number" placeholder="Stock" id="categorie" name="categorie">
             </label>
-            <input class="articleform__submit" type="submit">
+            <p class="articleform__message"></p>
+            <input class="articleform__submit" type="submit" value="Añadir artículo a la lista">
+            <button class="articleform__reset"><i class="fa-regular fa-trash-can articleform__reset--trash"></i>Reset</button>
         </form>
     </section>
     <section class="data">
@@ -88,7 +94,29 @@
             <li class="data__containerlist--element">
                 <article class="dataelement">
                     <div class="dataelement__img">
-                        <img class="dataelement__img--src" src=""/>
+                        <img class="dataelement__img--src" src="./assets/images/obj.jpeg"/>
+                    </div>
+                    <div class="dataelement__text">
+                        <p class="dataelement__text--title">Nombre del artículo</p>
+                        <div class="dataelement__text--ref">
+                            <p class="dataelement__text--questionref">Ref:</p>
+                            <p class="dataelement__text--answerref">75854879</p>
+                        </div>
+                        <div class="dataelement__text--cat">
+                            <p class="dataelement__text--questioncat">Categoría:</p>
+                            <p class="dataelement__text--answercat">Objetos</p>
+                        </div>
+                        <div class="dataelement__text--stock">
+                            <p class="dataelement__text--questionstock">Stock:</p>
+                            <p class="dataelement__text--answerstock">20</p>
+                        </div>
+                    </div>
+                </article>
+            </li>
+            <li class="data__containerlist--element">
+                <article class="dataelement">
+                    <div class="dataelement__img">
+                        <img class="dataelement__img--src" src="./assets/images/obj.jpeg"/>
                     </div>
                     <div class="dataelement__text">
                         <p class="dataelement__text--title">Nombre del artículo</p>
@@ -118,5 +146,6 @@
       </div>
     </footer>
 
+    <script src="./assets/js/main.js"></script>
 </body>
 </html>

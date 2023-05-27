@@ -9,7 +9,8 @@
   height: 60px;
   background-color: #114e4e;
   align-items: center;
-  padding: 0 10px; }
+  padding: 0 10px;
+  padding-right: 20px; }
   .header__logo {
     width: 30px; }
   .header__list {
@@ -66,6 +67,7 @@ a {
   margin: 20px 40px; }
   .categories__cat {
     background-image: url(../images/calendario.jpeg);
+    background-size: 100px;
     border-radius: 10px;
     height: 70px;
     display: flex;
@@ -99,11 +101,33 @@ a {
     gap: 10px; }
     .articleform__label--input {
       height: 30px; }
+  .articleform__message {
+    color: red; }
   .articleform__submit {
     padding: 10px 20px;
     background-color: white;
     border: none;
-    border-radius: 20px; }
+    border-radius: 20px;
+    text-transform: uppercase;
+    width: 80%; }
+  .articleform__reset {
+    color: #54585a;
+    text-transform: uppercase;
+    font-size: 9px;
+    line-height: 1.67;
+    padding: 4px 10px 4px 10px;
+    border: 1.5px solid #fff;
+    background-color: none;
+    border-radius: 20px;
+    display: flex;
+    gap: 2px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 75px; }
+    .articleform__reset--trash {
+      padding-right: 8px;
+      font-size: 10px; }
 
 .data {
   display: flex;
@@ -125,9 +149,10 @@ a {
   align-items: center;
   padding: 10px; }
   .dataelement__img {
-    border: 1px solid black;
     width: 100px;
     height: 100px; }
+    .dataelement__img--src {
+      width: 100px; }
   .dataelement__text {
     font-family: 'Roboto', sans-serif;
     font-size: 14px; }
@@ -142,6 +167,9 @@ a {
     .dataelement__text--stock {
       display: flex;
       gap: 10px; }
+
+.collapsed {
+  display: none; }
 
 .footer {
   display: flex;
