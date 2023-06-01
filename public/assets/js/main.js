@@ -1,3 +1,4 @@
+'use strict';
 'use strict'
 const inputDate = document.querySelector ('.form__date--input');
 const inputNote = document.querySelector ('.form__note--input');
@@ -69,5 +70,4 @@ function newElement(event){
     }
 }
 submitButtom.addEventListener('click', newElement);
-'use strict';
 //# sourceMappingURL=main.js.map
