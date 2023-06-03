@@ -12,7 +12,7 @@
   padding: 0 10px;
   padding-right: 20px; }
   .header__logo {
-    width: 30px; }
+    width: 55px; }
   .header__list {
     display: flex;
     align-items: center;
@@ -104,12 +104,13 @@ a {
   .articleform__message {
     color: red; }
   .articleform__submit {
-    padding: 10px 20px;
+    padding: 10px 10px;
     background-color: white;
     border: none;
     border-radius: 20px;
     text-transform: uppercase;
-    width: 80%; }
+    width: 80%;
+    font-size: 12px; }
   .articleform__reset {
     color: #54585a;
     text-transform: uppercase;
@@ -178,9 +179,9 @@ a {
   padding: 10px 40px; }
   .footer__containertext--paragraph {
     font-size: 13px;
-    color: #c5c5c5; }
+    color: #000; }
   .footer__containerimg--logo {
-    width: 60px; }
+    width: 50px; }
 
 /*font-family: 'Montserrat', sans-serif;
 font-family: 'Roboto', sans-serif;*/

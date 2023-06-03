@@ -1,4 +1,3 @@
-'use strict'
 const inputDate = document.querySelector ('.form__date--input');
 const inputNote = document.querySelector ('.form__note--input');
 const noteDate = document.querySelector ('.noteslist__element--date');
@@ -20,4 +19,6 @@ function newNote (event){
         </li>`
     }
 }
-newNoteButtom.addEventListener ('click', newNote);
+if( newNoteButtom !== null ) {
+    newNoteButtom.addEventListener ('click', newNote);
+  }

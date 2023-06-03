@@ -27,10 +27,9 @@
 .landingContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 30px; }
+  align-items: center; }
   .landingContainer__logo {
-    width: 150px; }
+    width: 250px; }
   .landingContainer__article {
     text-align: center; }
     .landingContainer__article--title {
@@ -45,7 +44,8 @@
     background-color: #a0c0cf;
     padding: 10px 20px;
     border-radius: 30px;
-    border: none; }
+    border: none;
+    margin-top: 20px; }
 
 .footer {
   display: flex;
@@ -54,9 +54,9 @@
   padding: 10px 40px; }
   .footer__containertext--paragraph {
     font-size: 13px;
-    color: #c5c5c5; }
+    color: #000; }
   .footer__containerimg--logo {
-    width: 60px; }
+    width: 50px; }
 
 /*font-family: 'Montserrat', sans-serif;
 font-family: 'Roboto', sans-serif;*/

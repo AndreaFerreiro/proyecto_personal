@@ -45,4 +45,6 @@ function newElement(event){
         </li>`
     }
 }
-submitButtom.addEventListener('click', newElement);
+if( submitButtom !== null ) {
+    submitButtom.addEventListener('click', newElement);
+  }
