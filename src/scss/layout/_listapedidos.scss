@@ -34,6 +34,21 @@
         border: none;
     }
 }
+.sectionlist{
+    list-style: none;
+    width: 90%;
+    &__list{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        list-style: none;
+        width: 90%;
+        &--element{
+            display: flex;
+        }
+    }
+}
 .collapsed{
     display: none;
 }
