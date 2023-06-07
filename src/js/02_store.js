@@ -2,12 +2,7 @@ const inputName = document.querySelector('.input_name');
 const inputRef = document.querySelector('.input_ref');
 const inputCat = document.querySelector ('.input_cat');
 const inputStock = document.querySelector ('.input_stock');
-const newElement={
-    name:
-    ref:
-    categorie:
-    stock:
-}
+
 const answerName = document.querySelector ('.dataelement__text--title');
 const answerRef = document.querySelector ('.dataelement__text--answerref');
 const answerCat = document.querySelector ('.dataelement__text--answercat');
@@ -38,15 +33,16 @@ function renderElement(newElement){
                 </div>
             </div>
         </article>
-</li>`
- console.log(renderElement());
+    </li>`
 }
-function newElement(event){
+function handleNewElement(event){
     event.preventDefault();
-    /*const nameValue = inputName.value;
-    const refValue = inputRef.value;
-    const catValue = inputCat.value;
-    const stockValue = inputStock.value;*/
+    const newElement={
+        name:'',
+        ref:'',
+        categorie:'',
+        stock:''
+    }
     newElement.name= inputName.value;
     newElement.ref = inputRef.value;
     newElement.categorie= inputCat.value;
@@ -59,5 +55,5 @@ function newElement(event){
     }
 }
 if( submitButtom !== null ) {
-    submitButtom.addEventListener('click', newElement);
+    submitButtom.addEventListener('click', handleNewElement);
   }
