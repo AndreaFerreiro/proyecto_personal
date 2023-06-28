@@ -2,14 +2,14 @@ const inputName = document.querySelector('.input_name');
 const inputRef = document.querySelector('.input_ref');
 const inputCat = document.querySelector ('.input_cat');
 const inputStock = document.querySelector ('.input_stock');
-
 const answerName = document.querySelector ('.dataelement__text--title');
 const answerRef = document.querySelector ('.dataelement__text--answerref');
 const answerCat = document.querySelector ('.dataelement__text--answercat');
 const answerStock = document.querySelector ('.dataelement__text--answerstock');
 const submitButtom = document.querySelector ('.articleform__submit');
 const message =document.querySelector ('.articleform__message');
-const list =document.querySelector ('.data__containerlist')
+const list =document.querySelector ('.data__containerlist');
+const dataListStore = [];
 function renderElement(newElement){
     list.innerHTML+= `
     <li class="data__containerlist--element">
@@ -56,7 +56,25 @@ function handleNewElement(event){
 }
 if( submitButtom !== null ) {
     submitButtom.addEventListener('click', handleNewElement);
-  }
+}
+function initialListStore() {
+    if (kittenListStored) {
+        for (let i = 0; i < kittenListStored.length; i++) {
+            renderKitten(kittenListStored[i]);
+        }
+    } else {
+        fetch(`${SERVER_URL}`)
+        .then((response) => response.json())
+        .then((data) => {
+            kittenDataList = data.results;
+            for (let i = 0; i < kittenDataList.length; i++) {
+                renderKitten(kittenDataList[i]);
+            }
+            localStorage.setItem('cats', JSON.stringify(kittenDataList));
+        });
+    }
+}
+initialListKitten()
 const inputDate = document.querySelector ('.form__date--input');
 const inputNote = document.querySelector ('.form__note--input');
 const noteDate = document.querySelector ('.noteslist__element--date');
