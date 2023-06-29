@@ -25,117 +25,157 @@
     </header>
 
     <section class="container">
+      <button title="buscar articulo" class="container__searchButtonStore">Buscar</button>
+      <div class="container__collapsedsection collapsed">
         <p class="container__title">¿Qué artículo necesitas?</p>
         <form class="container__form">
-            <input 
-                class="input js_in_search_desc container__form--input" 
-                type="text" 
-                placeholder="Artículo" />
-            <input
-                class="input js_in_search_race container__form--input"
-                type="text"
-                name="raza"
-                placeholder="Ref"
-                id="raza"
-            />
-            <input type="submit" class="button container__form--submit">
-          </form>
+          <input
+            class="input js_in_search_desc container__form--input"
+            type="text"
+            placeholder="Artículo"
+          />
+          <input
+            class="input js_in_search_race container__form--input"
+            type="text"
+            name="raza"
+            placeholder="Ref"
+            id="raza"
+          />
+          <input type="submit" class="button container__form--submit" />
+        </form>
+      </div>
     </section>
     <section class="title-categories">
-        <p class="categories__title">categorias</p>
+      <p class="categories__title">categorias</p>
     </section>
     <section class="categories">
-        <article class="categories__cat1 categories__cat">
-            <p>CAT1</p>
-        </article>
-        <article class="categories__cat2 categories__cat">
-            <p>CAT2</p>
-        </article>
-        <article class="categories__cat3 categories__cat">
-            <p>CAT3</p>
-        </article>
-        <article class="categories__cat4 categories__cat">
-            <p>CAT4</p>
-        </article>
-        <article class="categories__cat5 categories__cat">
-            <p>CAT5</p>
-        </article>
-        <article class="categories__cat6 categories__cat">
-            <p>CAT6</p>
-        </article>
+      <article class="categories__cat1 categories__cat">
+        <p>CAT1</p>
+      </article>
+      <article class="categories__cat2 categories__cat">
+        <p>CAT2</p>
+      </article>
+      <article class="categories__cat3 categories__cat">
+        <p>CAT3</p>
+      </article>
+      <article class="categories__cat4 categories__cat">
+        <p>CAT4</p>
+      </article>
+      <article class="categories__cat5 categories__cat">
+        <p>CAT5</p>
+      </article>
+      <article class="categories__cat6 categories__cat">
+        <p>CAT6</p>
+      </article>
     </section>
     <section class="newarticle">
+      <button class="newarticle__Button" title="Añadir nuevo artículo al almacén">
+        Añadir nuevo artículo
+      </button>
+      <div class="newarticle__form collapsed">
         <p class="newarticle__title">Añadir nuevo artículo</p>
         <form class="articleform">
-            <label class="articleform__label" id="name">
-                <span id="name">Nombre del artículo:</span>
-                <input class="articleform__label--input input_name" type="text" placeholder="Nombre articulo" id="name" name="name">
-            </label>
-            <label class="articleform__label" id="ref">
-                <span id="ref">Referencia del artículo:</span>
-                <input class="articleform__label--input input_ref" type="text" placeholder="Ref" id="ref" name="ref">
-            </label>
-            <label class="articleform__label" id="categorie">
-                <span id="categorie">En que categoría deseas colocarlo?</span>
-                <input class="articleform__label--input input_cat" type="text" placeholder="Categoria" id="categorie" name="categorie">
-            </label>
-            <label class="articleform__label" id="categorie">
-                <span id="stock">Con cuánto stock cuentas?</span>
-                <input class="articleform__label--input input_stock" type="number" placeholder="Stock" id="categorie" name="categorie">
-            </label>
-            <p class="articleform__message"></p>
-            <input class="articleform__submit" type="submit" value="Añadir artículo a la lista">
-            <button class="articleform__reset"><i class="fa-regular fa-trash-can articleform__reset--trash"></i>Reset</button>
+          <label class="articleform__label" id="name">
+            <span id="name">Nombre del artículo:</span>
+            <input
+              class="articleform__label--input input_name"
+              type="text"
+              placeholder="Nombre articulo"
+              id="name"
+              name="name"
+            />
+          </label>
+          <label class="articleform__label" id="ref">
+            <span id="ref">Referencia del artículo:</span>
+            <input
+              class="articleform__label--input input_ref"
+              type="text"
+              placeholder="Ref"
+              id="ref"
+              name="ref"
+            />
+          </label>
+          <label class="articleform__label" id="categorie">
+            <span id="categorie">En que categoría deseas colocarlo?</span>
+            <input
+              class="articleform__label--input input_cat"
+              type="text"
+              placeholder="Categoria"
+              id="categorie"
+              name="categorie"
+            />
+          </label>
+          <label class="articleform__label" id="categorie">
+            <span id="stock">Con cuánto stock cuentas?</span>
+            <input
+              class="articleform__label--input input_stock"
+              type="number"
+              placeholder="Stock"
+              id="categorie"
+              name="categorie"
+            />
+          </label>
+          <p class="articleform__message"></p>
+          <input
+            class="articleform__submit"
+            type="submit"
+            value="Añadir artículo a la lista"
+          />
+          <button class="articleform__reset">
+            <i class="fa-regular fa-trash-can articleform__reset--trash"></i>Reset
+          </button>
         </form>
+      </div>
     </section>
     <section class="data">
-        <ul class="data__containerlist">
-            <li class="data__containerlist--element">
-                <article class="dataelement">
-                    <div class="dataelement__img">
-                        <img class="dataelement__img--src" src="./assets/images/obj.jpeg"/>
-                    </div>
-                    <div class="dataelement__text">
-                        <p class="dataelement__text--title">Nombre del artículo</p>
-                        <div class="dataelement__text--ref">
-                            <p class="dataelement__text--questionref">Ref:</p>
-                            <p class="dataelement__text--answerref">75854879</p>
-                        </div>
-                        <div class="dataelement__text--cat">
-                            <p class="dataelement__text--questioncat">Categoría:</p>
-                            <p class="dataelement__text--answercat">Objetos</p>
-                        </div>
-                        <div class="dataelement__text--stock">
-                            <p class="dataelement__text--questionstock">Stock:</p>
-                            <p class="dataelement__text--answerstock">20</p>
-                        </div>
-                    </div>
-                </article>
-            </li>
-            <li class="data__containerlist--element">
-                <article class="dataelement">
-                    <div class="dataelement__img">
-                        <img class="dataelement__img--src" src="./assets/images/obj.jpeg"/>
-                    </div>
-                    <div class="dataelement__text">
-                        <p class="dataelement__text--title">Nombre del artículo</p>
-                        <div class="dataelement__text--ref">
-                            <p class="dataelement__text--questionref">Ref:</p>
-                            <p class="dataelement__text--answerref">75854879</p>
-                        </div>
-                        <div class="dataelement__text--cat">
-                            <p class="dataelement__text--questioncat">Categoría:</p>
-                            <p class="dataelement__text--answercat">Objetos</p>
-                        </div>
-                        <div class="dataelement__text--stock">
-                            <p class="dataelement__text--questionstock">Stock:</p>
-                            <p class="dataelement__text--answerstock">20</p>
-                        </div>
-                    </div>
-                </article>
-            </li>
-        </ul>
+      <ul class="data__containerlist">
+        <li class="data__containerlist--element">
+          <article class="dataelement">
+            <div class="dataelement__img">
+              <img class="dataelement__img--src" src="./assets/images/obj.jpeg" />
+            </div>
+            <div class="dataelement__text">
+              <p class="dataelement__text--title">Nombre del artículo</p>
+              <div class="dataelement__text--ref">
+                <p class="dataelement__text--questionref">Ref:</p>
+                <p class="dataelement__text--answerref">75854879</p>
+              </div>
+              <div class="dataelement__text--cat">
+                <p class="dataelement__text--questioncat">Categoría:</p>
+                <p class="dataelement__text--answercat">Objetos</p>
+              </div>
+              <div class="dataelement__text--stock">
+                <p class="dataelement__text--questionstock">Stock:</p>
+                <p class="dataelement__text--answerstock">20</p>
+              </div>
+            </div>
+          </article>
+        </li>
+        <li class="data__containerlist--element">
+          <article class="dataelement">
+            <div class="dataelement__img">
+              <img class="dataelement__img--src" src="./assets/images/obj.jpeg" />
+            </div>
+            <div class="dataelement__text">
+              <p class="dataelement__text--title">Nombre del artículo</p>
+              <div class="dataelement__text--ref">
+                <p class="dataelement__text--questionref">Ref:</p>
+                <p class="dataelement__text--answerref">75854879</p>
+              </div>
+              <div class="dataelement__text--cat">
+                <p class="dataelement__text--questioncat">Categoría:</p>
+                <p class="dataelement__text--answercat">Objetos</p>
+              </div>
+              <div class="dataelement__text--stock">
+                <p class="dataelement__text--questionstock">Stock:</p>
+                <p class="dataelement__text--answerstock">20</p>
+              </div>
+            </div>
+          </article>
+        </li>
+      </ul>
     </section>
+
     <footer class="footer">
       <div class="footer__containertext">
         <p class="footer__containertext--paragraph">Tu almacén virtual &copy;2023</p>

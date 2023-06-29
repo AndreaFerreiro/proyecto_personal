@@ -27,14 +27,23 @@ a {
 
 .container {
   background-color: #438792;
-  height: 150px;
+  height: -moz-fit-content;
+  height: fit-content;
   margin: 20px 40px;
   display: flex;
   flex-direction: column;
   gap: 20px;
   align-items: center;
   justify-content: center;
-  border-radius: 15px; }
+  border-radius: 15px;
+  padding: 10px 0px; }
+  .container__searchButtonStore {
+    background-color: #438792;
+    color: white;
+    text-transform: uppercase;
+    border: none;
+    width: 100%;
+    text-align: center; }
   .container__title {
     font-family: 'Roboto', sans-serif; }
   .container__form {
@@ -78,7 +87,16 @@ a {
   margin: 40px 40px;
   background-color: #438792;
   border-radius: 20px;
-  padding: 20px; }
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .newarticle__Button {
+    text-align: center;
+    background-color: #438792;
+    border: none;
+    color: white;
+    text-transform: uppercase; }
   .newarticle__title {
     display: flex;
     align-items: center;
@@ -98,7 +116,8 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10px; }
+    gap: 10px;
+    text-align: center; }
     .articleform__label--input {
       height: 30px; }
   .articleform__message {

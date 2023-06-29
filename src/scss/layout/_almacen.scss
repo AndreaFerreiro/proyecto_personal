@@ -1,6 +1,6 @@
 .container{
     background-color: $dirty-blue;
-    height: 150px;
+    height: fit-content;
     margin: 20px 40px;
     display: flex;
     flex-direction: column;
@@ -8,6 +8,15 @@
     align-items: center;
     justify-content: center;
     border-radius: 15px;
+    padding: 10px 0px;
+    &__searchButtonStore{
+        background-color: $dirty-blue;
+        color: white;
+        text-transform: uppercase;
+        border: none;
+        width: 100%;
+        text-align: center;
+    }
     &__title{
         font-family: 'Roboto', sans-serif;
     }
@@ -55,6 +64,16 @@
     background-color: $dirty-blue;
     border-radius: 20px;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__Button{
+        text-align: center;
+        background-color: $dirty-blue;
+        border: none;
+        color: white;
+        text-transform: uppercase;
+    }
     &__title{
         display: flex;
         align-items: center;
@@ -76,6 +95,7 @@
         align-items: center;
         justify-content: center;
         gap: 10px;
+        text-align: center;
         &--input{
             height: 30px;
         }
