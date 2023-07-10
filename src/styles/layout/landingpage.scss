@@ -1,0 +1,36 @@
+@import '../core/variables.scss';
+.landingpage{
+  background-color: $white-four;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.landingContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__logo{
+    width: 250px;
+  }
+  &__article{
+    text-align: center;
+    &--title{
+      font-size: 18.2px;
+      font-family: 'Roboto', sans-serif;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    &--paragraph{
+      font-size: 16px;
+      font-family: 'Montserrat', sans-serif;
+    }
+  }
+  &__buttom{
+    background-color: $light-grey-blue;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: none;
+    margin-top: 20px;
+  }
+}
