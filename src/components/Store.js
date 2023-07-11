@@ -1,14 +1,13 @@
 import '../styles/layout/store.scss';
 import obj from '../images/obj.jpeg';
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
 import lupa from '../images/lupa.png';
 import añadir from '../images/añadir.png';
+import ls from '../services/localStorage';
 const Store = () => {
-  //buscador
-  //colapsar o mostrar
   const [showSearch, setShowSearch] = useState('collapsed');
   const [showAdd, setShowAdd] = useState('collapsed');
-  const [productList, setProductList] = useState([]);
+  const [productList, setProductList] = useState(ls.get('products',[]));
   let element = {
     name: '',
     ref: '',
@@ -16,14 +15,26 @@ const Store = () => {
     stock: '',
   };
   const [product, setProduct] = useState(element);
+  /*useEffect(() => {
+    ls.set('products', productList);
+  }, [productList]);*/
   const handleNewProduct = (event) => {
     setProduct({ ...product, [event.target.id]: event.target.value });
   };
   const handleAddProduct = (event) => {
     setProductList([...productList, product]);
   };
+  const [nameSearch, setNameSearch] = useState(ls.get(''));
+  const [refSearch, setRefSearch] = useState('');
+  const filteredProducts = productList
+    .filter((eachProduct) =>
+    eachProduct.name.toLowerCase().includes(nameSearch)
+    )
+    .filter((eachProduct) =>
+    eachProduct.species.toLowerCase().endsWith(refSearch)
+    );
   const renderList = () => {
-    return productList.map((eachProduct) => {
+    return filteredProducts.map((eachProduct) => {
       return (
         <li key={product.ref} className="data__containerlist--element">
           <article className="dataelement">
@@ -105,7 +116,7 @@ const Store = () => {
           <p className="sectionForms__searchForm--title">
             ¿Qué artículo necesitas?
           </p>
-          <form className="sectionForms__searchForm--form">
+          <form onSubmit={handleSubmit} className="sectionForms__searchForm--form">
             <input
               className="input js_in_search_desc sectionForms__form--input"
               type="text"
@@ -156,9 +167,14 @@ const Store = () => {
                 placeholder="Categoria"
                 id="categorie"
                 name="categorie"
+                list="categirie"
                 onInput={handleNewProduct}
                 value={product.categorie}
               />
+              <datalist id="categirie">
+                <option value="Cat1"></option>
+                <option value="Cat2"></option>
+              </datalist>
             </label>
             <label className="sectionForms__addForm--label" id="stock">
               <span id="stock">Con cuánto stock cuentas?</span>
