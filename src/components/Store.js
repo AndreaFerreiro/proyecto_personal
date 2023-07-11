@@ -15,26 +15,41 @@ const Store = () => {
     stock: '',
   };
   const [product, setProduct] = useState(element);
-  /*useEffect(() => {
+  useEffect(() => {
     ls.set('products', productList);
-  }, [productList]);*/
+  }, [productList]);
   const handleNewProduct = (event) => {
     setProduct({ ...product, [event.target.id]: event.target.value });
   };
   const handleAddProduct = (event) => {
     setProductList([...productList, product]);
+    setProduct({
+      name: '',
+    ref: '',
+    categorie: '',
+    stock: ''
+    });
+    setShowAdd('collapsed');
   };
-  const [nameSearch, setNameSearch] = useState(ls.get(''));
+  const [nameSearch, setNameSearch] = useState('');
   const [refSearch, setRefSearch] = useState('');
+  const handleSearch = (ev) => {
+    const search = ev.target.value;
+    if (ev.target.id === 'name'){
+      setNameSearch(search);
+    } else {
+      setRefSearch(search);
+    }
+  }
   const filteredProducts = productList
     .filter((eachProduct) =>
-    eachProduct.name.toLowerCase().includes(nameSearch)
+    eachProduct.name.includes(nameSearch)
     )
     .filter((eachProduct) =>
-    eachProduct.species.toLowerCase().endsWith(refSearch)
+    eachProduct.species.endsWith(refSearch)
     );
   const renderList = () => {
-    return filteredProducts.map((eachProduct) => {
+    return productList.map((eachProduct) => {
       return (
         <li key={product.ref} className="data__containerlist--element">
           <article className="dataelement">
@@ -42,21 +57,21 @@ const Store = () => {
               <img className="dataelement__img--src" src={obj} />
             </div>
             <div className="dataelement__text">
-              <p className="dataelement__text--title">{product.name}</p>
+              <p className="dataelement__text--title">{eachProduct.name}</p>
               <div className="dataelement__text--ref">
                 <p className="dataelement__text--questionref">Ref:</p>
-                <p className="dataelement__text--answerref">{product.ref}</p>
+                <p className="dataelement__text--answerref">{eachProduct.ref}</p>
               </div>
               <div className="dataelement__text--cat">
                 <p className="dataelement__text--questioncat">Categoría:</p>
                 <p className="dataelement__text--answercat">
-                  {product.categorie}
+                  {eachProduct.categorie}
                 </p>
               </div>
               <div className="dataelement__text--stock">
                 <p className="dataelement__text--questionstock">Stock:</p>
                 <p className="dataelement__text--answerstock">
-                  {product.stock}
+                  {eachProduct.stock}
                 </p>
               </div>
             </div>
@@ -122,13 +137,17 @@ const Store = () => {
               type="text"
               placeholder="Artículo"
               id="name"
+              value={nameSearch}
+              onInput={handleSearch}
             />
             <input
               className="input js_in_search_race sectionForms__form--input"
               type="text"
               name="ref"
-              placeholder="Ref"
+              placeholder="4 últimos dígitos"
               id="ref"
+              value={refSearch}
+              onInput={handleSearch}
             />
           </form>
         </div>

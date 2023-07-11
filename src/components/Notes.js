@@ -80,14 +80,6 @@ const Notes = () => {
           <p className="errormessage"></p>
         </form>
         <ul className="noteslist">
-          <li className="noteslist__element">
-            <p className="noteslist__element--date">2023-07-25</p>
-            <p className="noteslist__element--text">Presentación Proyecto Personal</p>
-          </li>
-          <li className="noteslist__element">
-            <p className="noteslist__element--date">2023-07-24</p>
-            <p className="noteslist__element--text">Última Evaluación</p>
-          </li>
           {renderNote()}
         </ul>
       </section>

@@ -3,24 +3,23 @@
     padding-top: 30px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    margin: 40px;
     min-height: 100vh;
     gap: 20px;
     &__title{
         text-transform: uppercase;
         font-size: 18px;
+        display: flex;
+        align-items: center;
     }
     &__buttomadd{
-        background-color: $dirty-blue;
-        border-radius: 5px;
-        padding: 7px 15px;
-        color: white;
+        width: 20px;
+        margin-left: 10px;
     }
     &__sectionform{
-        background-color: $dirty-blue;
         padding: 30px 20px;
         border-radius: 10px;
-        width: 80%;
+        width: 100%;
     }
 }
 .formadd{
@@ -28,26 +27,48 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    &__label{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
     &__submit{
-        background-color: white;
+        border: 1px solid black;
         border-radius: 10px;
         padding: 5px;
-        border: none;
     }
 }
 .sectionlist{
     list-style: none;
-    width: 90%;
     &__list{
         display: flex;
         flex-direction: column;
         gap: 10px;
         align-items: center;
         list-style: none;
-        width: 90%;
         &--element{
             display: flex;
+            width: 100%;
+            background-color: $dark-green-blue;
+            padding: 10px;
+            border-radius: 10px;
+            gap: 15px;
+            color: white;
         }
+    }
+}
+.element{
+    &__img{
+        width: 60px;
+        &--src{
+            width: 60px;
+            height: 60px;
+        }
+    }
+    &__info{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 }
 .collapsed{
