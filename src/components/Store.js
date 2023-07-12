@@ -1,16 +1,17 @@
 import '../styles/layout/store.scss';
 import obj from '../images/obj.jpeg';
-import { useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import lupa from '../images/lupa.png';
 import añadir from '../images/añadir.png';
 import ls from '../services/localStorage';
 const Store = () => {
   const [showSearch, setShowSearch] = useState('collapsed');
   const [showAdd, setShowAdd] = useState('collapsed');
-  const [productList, setProductList] = useState(ls.get('products',[]));
+  const [productList, setProductList] = useState(ls.get('products', []));
   let element = {
     name: '',
     ref: '',
+    img:'',
     categorie: '',
     stock: '',
   };
@@ -25,9 +26,10 @@ const Store = () => {
     setProductList([...productList, product]);
     setProduct({
       name: '',
-    ref: '',
-    categorie: '',
-    stock: ''
+      ref: '',
+      img:'',
+      categorie: '',
+      stock: '',
     });
     setShowAdd('collapsed');
   };
@@ -35,32 +37,38 @@ const Store = () => {
   const [refSearch, setRefSearch] = useState('');
   const handleSearch = (ev) => {
     const search = ev.target.value;
-    if (ev.target.id === 'name'){
-      setNameSearch(search);
+    if (ev.target.id === 'name') {
+      setNameSearch(search.toLowerCase());
     } else {
-      setRefSearch(search);
+      setRefSearch(search.toLowerCase());
     }
-  }
+  };
+  const [range, setRange] = useState('50');
+  const handleRangeStock = (ev) => {
+    const rangeStock = ev.target.value;
+    setRange(rangeStock);
+  };
   const filteredProducts = productList
     .filter((eachProduct) =>
-    eachProduct.name.includes(nameSearch)
+      eachProduct.name.toLowerCase().includes(nameSearch)
     )
-    .filter((eachProduct) =>
-    eachProduct.species.endsWith(refSearch)
-    );
+    .filter((eachProduct) => eachProduct.ref.toLowerCase().endsWith(refSearch))
+    .filter((eachProduct) => eachProduct.stock <= range);
   const renderList = () => {
-    return productList.map((eachProduct) => {
+    return filteredProducts.map((eachProduct) => {
       return (
-        <li key={product.ref} className="data__containerlist--element">
+        <li key={product.index} className="data__containerlist--element">
           <article className="dataelement">
             <div className="dataelement__img">
-              <img className="dataelement__img--src" src={obj} />
+              <img className="dataelement__img--src" src={eachProduct.img} />
             </div>
             <div className="dataelement__text">
               <p className="dataelement__text--title">{eachProduct.name}</p>
               <div className="dataelement__text--ref">
                 <p className="dataelement__text--questionref">Ref:</p>
-                <p className="dataelement__text--answerref">{eachProduct.ref}</p>
+                <p className="dataelement__text--answerref">
+                  {eachProduct.ref}
+                </p>
               </div>
               <div className="dataelement__text--cat">
                 <p className="dataelement__text--questioncat">Categoría:</p>
@@ -75,6 +83,10 @@ const Store = () => {
                 </p>
               </div>
             </div>
+            <div className='dataelement__emojis'>
+              <span className='dataelement__emojis--trash'>🗑</span>
+              <span className='dataelement__emojis--edit'>✏️</span>
+            </div>
           </article>
         </li>
       );
@@ -85,6 +97,7 @@ const Store = () => {
     setProduct({
       name: '',
       ref: '',
+      img:'',
       categorie: '',
       stock: '',
     });
@@ -93,7 +106,7 @@ const Store = () => {
     ev.preventDefault();
     if (showSearch === 'collapsed') {
       setShowSearch('');
-      setShowAdd('collapsed')
+      setShowAdd('collapsed');
     } else if (showSearch === '') {
       setShowSearch('collapsed');
     }
@@ -102,14 +115,14 @@ const Store = () => {
     ev.preventDefault();
     if (showAdd === 'collapsed') {
       setShowAdd('');
-      setShowSearch('collapsed')
+      setShowSearch('collapsed');
     } else if (showAdd === '') {
       setShowAdd('collapsed');
     }
   };
   const handleSubmit = (ev) => {
     ev.preventDefault();
-  }
+  };
   return (
     <main>
       <section className="container">
@@ -131,7 +144,10 @@ const Store = () => {
           <p className="sectionForms__searchForm--title">
             ¿Qué artículo necesitas?
           </p>
-          <form onSubmit={handleSubmit} className="sectionForms__searchForm--form">
+          <form
+            onSubmit={handleSubmit}
+            className="sectionForms__searchForm--form"
+          >
             <input
               className="input js_in_search_desc sectionForms__form--input"
               type="text"
@@ -149,6 +165,32 @@ const Store = () => {
               value={refSearch}
               onInput={handleSearch}
             />
+            <label htmlFor="range" className="sectionForms__form--label">
+              <span>Stock máximo</span>
+              <input
+                onClick={handleRangeStock}
+                htmlFor="range"
+                type="range"
+                min="0"
+                max="100"
+                list="stockmarks"
+                className="sectionForms__form--range"
+              ></input>
+              <datalist id="stockmarks">
+                <option value="0" label="0" />
+                <option value="10" />
+                <option value="20" />
+                <option value="30" />
+                <option value="40" />
+                <option value="50" label="50" />
+                <option value="60" />
+                <option value="70" />
+                <option value="80" />
+                <option value="90" />
+                <option value="100" label="100" />
+              </datalist>
+            </label>
+            <span>{range}</span>
           </form>
         </div>
         <div className={`sectionForms__add ${showAdd}`}>
@@ -177,6 +219,16 @@ const Store = () => {
                 onInput={handleNewProduct}
                 value={product.ref}
               />
+            </label>
+            <label className="sectionForms__addForm--label" id="img">
+              <span id="img">Imágen artículo:</span>
+              <input
+                type="file"
+                id="img"
+                className="sectionForms__addForm--input input_img"
+                onInput={handleNewProduct}
+                value={product.img}
+              ></input>
             </label>
             <label className="sectionForms__addForm--label" id="categorie">
               <span id="categorie">En que categoría deseas colocarlo?</span>
@@ -248,53 +300,7 @@ const Store = () => {
         </article>
       </section>
       <section className="data">
-        <ul className="data__containerlist">
-          {renderList()}
-          <li className="data__containerlist--element">
-            <article className="dataelement">
-              <div className="dataelement__img">
-                <img className="dataelement__img--src" src={obj} />
-              </div>
-              <div className="dataelement__text">
-                <p className="dataelement__text--title">Artículo 1</p>
-                <div className="dataelement__text--ref">
-                  <p className="dataelement__text--questionref">Ref:</p>
-                  <p className="dataelement__text--answerref">75854878</p>
-                </div>
-                <div className="dataelement__text--cat">
-                  <p className="dataelement__text--questioncat">Categoría:</p>
-                  <p className="dataelement__text--answercat">Objetos</p>
-                </div>
-                <div className="dataelement__text--stock">
-                  <p className="dataelement__text--questionstock">Stock:</p>
-                  <p className="dataelement__text--answerstock">20</p>
-                </div>
-              </div>
-            </article>
-          </li>
-          <li className="data__containerlist--element">
-            <article className="dataelement">
-              <div className="dataelement__img">
-                <img className="dataelement__img--src" src={obj} />
-              </div>
-              <div className="dataelement__text">
-                <p className="dataelement__text--title">Articulo 2</p>
-                <div className="dataelement__text--ref">
-                  <p className="dataelement__text--questionref">Ref:</p>
-                  <p className="dataelement__text--answerref">75854879</p>
-                </div>
-                <div className="dataelement__text--cat">
-                  <p className="dataelement__text--questioncat">Categoría:</p>
-                  <p className="dataelement__text--answercat">Objetos</p>
-                </div>
-                <div className="dataelement__text--stock">
-                  <p className="dataelement__text--questionstock">Stock:</p>
-                  <p className="dataelement__text--answerstock">20</p>
-                </div>
-              </div>
-            </article>
-          </li>
-        </ul>
+        <ul className="data__containerlist">{renderList()}</ul>
       </section>
     </main>
   );

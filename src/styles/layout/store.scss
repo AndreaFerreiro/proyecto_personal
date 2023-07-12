@@ -29,6 +29,14 @@ main{
         }
     }
     &__form{
+        &--range{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            text-align: center;
+        }
         &--submit{
             background-color: white;
             padding: 10px 15px;
@@ -144,7 +152,8 @@ main{
     align-items: center;
     padding: 10px;
     &__img{
-        
+        background-image: url(../../images/obj.jpeg);
+        background-size: 200px;
         width: 100px;
         height: 100px;
         &--src{
@@ -169,6 +178,11 @@ main{
             display: flex;
             gap: 10px;
         }
+    }
+    &__emojis{
+        transform: translateX(370px);
+        display: flex;
+        gap: 10px;
     }
 }
 .collapsed{
