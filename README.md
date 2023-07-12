@@ -1,5 +1,5 @@
 # Tu almacén Virtual
-# Esta aplicación web cuenta con funcionalidades como el control de stock de un número de artículos ilimitado, la búsqueda de estos mediante nombre o referencia y laposibilidad de añadir cuanti s se quiera medinte un pequeño formulario.
+# Esta aplicación web cuenta con funcionalidades como el control de stock de un número de artículos ilimitado, la búsqueda de estos mediante nombre o referencia y laposibilidad de añadir cuantos se quiera mediante un pequeño formulario.
 # Además, cuenta con una página en la que poder tomar notas y otra para anotar los pedidos
 
 # Mejoras pendientes:
