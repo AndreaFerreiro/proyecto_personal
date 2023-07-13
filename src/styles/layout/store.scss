@@ -10,7 +10,9 @@ main{
     &__searchButtonStore{
         width: 20px;
     }
-    
+    &__searchButtonStore:hover{
+        -webkit-transform:scale(1.7);transform:scale(1.2);
+    }
 }
 .sectionForms{
     &__searchForm{
@@ -180,7 +182,6 @@ main{
         }
     }
     &__emojis{
-        transform: translateX(370px);
         display: flex;
         gap: 10px;
     }
@@ -198,8 +199,17 @@ main{
     }
     .data{
         &__containerlist{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
             &--element{
-                width: 90vw;
+                width: 20vw;
+            }
+            &--element:hover{
+                box-shadow: 5px 5px lightgrey;
+                -webkit-transform:scale(1.3);transform:scale(1.05);
             }
         }
     }
@@ -228,6 +238,22 @@ main{
     .input{
         height: 30px;
     }
+    .dataelement{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &__text{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+        &__emojis{
+            //transform: translateX(370px);
+            display: flex;
+            gap: 10px;
+        }
+    }
 }
 
 @media screen and (min-width:1024px) {
@@ -237,6 +263,18 @@ main{
         &__cat{
             background-size: cover;
             height: 120px;
+        }
+    }
+    .data{
+        &__containerlist{
+            &--element{
+                width: 15vw;
+            }
+        }
+    }
+    .dataelement{
+        &__emojis{
+            //transform: translateX(970px);
         }
     }
 }

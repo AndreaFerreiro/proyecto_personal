@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import lupa from '../images/lupa.png';
 import añadir from '../images/añadir.png';
 import ls from '../services/localStorage';
+import { Link } from 'react-router-dom';
 const Store = () => {
   const [showSearch, setShowSearch] = useState('collapsed');
   const [showAdd, setShowAdd] = useState('collapsed');
@@ -57,7 +58,7 @@ const Store = () => {
   const renderList = () => {
     return filteredProducts.map((eachProduct) => {
       return (
-        <li key={product.index} className="data__containerlist--element">
+        <li className="data__containerlist--element">
           <article className="dataelement">
             <div className="dataelement__img">
               <img className="dataelement__img--src" src={eachProduct.img} />
@@ -82,10 +83,10 @@ const Store = () => {
                   {eachProduct.stock}
                 </p>
               </div>
-            </div>
-            <div className='dataelement__emojis'>
-              <span className='dataelement__emojis--trash'>🗑</span>
-              <span className='dataelement__emojis--edit'>✏️</span>
+              <div className='dataelement__emojis'>
+                <span className='dataelement__emojis--trash'>🗑</span>
+                <span className='dataelement__emojis--edit'>✏️</span>
+              </div>
             </div>
           </article>
         </li>

@@ -12,6 +12,7 @@ import Store from './Store';
 import Notes from './Notes';
 import Orders from './Orders';
 import { useEffect, useState } from 'react';
+import Detail from './detail';
 function App() {
   
   
@@ -35,6 +36,9 @@ function App() {
           } 
         />
         <Route path="/Pedidos" element={<Orders />} />
+        {/*<Route 
+        path='/Detail'
+        element={<Detail/>}/>*/}
       </Routes>
       <Footer />
     </div>

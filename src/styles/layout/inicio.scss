@@ -84,6 +84,10 @@
             height: 450px;
         }
     }
+    &__all:hover{
+        box-shadow: 5px 5px black;
+        -webkit-transform:scale(1.3);transform:scale(1.05);
+    }
     &__notes{
         background-image: url(../../images/notas.jpeg);
         background-size: 200px;
