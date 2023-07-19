@@ -53,13 +53,13 @@ const Store = () => {
     .filter((eachProduct) =>
       eachProduct.name.toLowerCase().includes(nameSearch)
     )
-    .filter((eachProduct) => eachProduct.ref.toLowerCase().endsWith(refSearch))
-    .filter((eachProduct) => eachProduct.stock <= range);
+    .filter((eachProduct) => eachProduct.ref.toLowerCase().endsWith(refSearch));
+    //.filter((eachProduct) => parseInt(eachProduct.stock) <= parseInt(range));
   const renderList = () => {
     return filteredProducts.map((eachProduct) => {
       return (
         <li className="data__containerlist--element">
-          <article className="dataelement">
+          <article className={parseInt(eachProduct.stock)>parseInt(range)?"dataelement":"dataelement warning"}>
             <div className="dataelement__img">
               <img className="dataelement__img--src" src={eachProduct.img} />
             </div>

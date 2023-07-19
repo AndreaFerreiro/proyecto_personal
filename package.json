@@ -1,42 +1,29 @@
 {
-  "name": "react-starter-kit",
-  "homepage": "./",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "node-sass": "^7.0.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.14.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
-  },
+  "name": "proyecto_personal",
+  "version": "1.0.0",
+  "description": "-Además, cuenta con una página en la que poder tomar notas y otra para anotar los pedidos",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "githubpages": "rm -rf build && rm -rf docs && npm run build && mv build docs && git add docs/* && git commit -m \"Publish in GitHub Pages\" && git push",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "NODE_ENV=test jest --verbose --watchAll --runInBand",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "publishreact": "rm -rf src/public_html ; cd frontend-react ; npm run build ; mv build ../src/public_html"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreaFerreiro/proyecto_personal.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndreaFerreiro/proyecto_personal/issues"
+  },
+  "homepage": "https://github.com/AndreaFerreiro/proyecto_personal#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.1",
+    "mysql2": "^3.5.2"
   }
 }
