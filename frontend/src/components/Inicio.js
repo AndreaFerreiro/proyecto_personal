@@ -1,45 +1,43 @@
 import { Link } from "react-router-dom";
 import '../styles/layout/inicio.scss';
 import perfil from '../images/perfil-de-usuario.webp';
+import contenedores from '../images/contenedores.jpeg';
 const Inicio = () => {
   return (
     <main className="general">
-      <div className="divTitle">
-      <h1 className="title">Tu almacén vitual</h1>
-      <Link to="/Perfil" title="Perfil">
-      <img className="perfil" src={perfil}></img>
-      </Link>
-      </div>
-      <div className="welcome_reminder">
-        <section className="welcome">
-          <p>
-            Bienvenid@ a tu almacén virtual!! Espero que tengas un buen día.
+      <aside className="aside">
+        <section className="divTitle">
+          <h1 className="title">Tu almacén virtual</h1>
+          <Link to="/Perfil" title="Perfil">
+            <img className="perfil" src={perfil}></img>
+          </Link>
+        </section>
+        <div className="containerLists">
+          <section className="nav">
+          <ul className="nav__list">
+            <Link to="/Almacén" className="nav__list--element"><li>Almacén</li></Link>
+            <Link to="/Notas" className="nav__list--element"><li>Notas</li></Link>
+            <Link to="/Pedidos" className="nav__list--element"><li>Pedidos</li></Link>
+          </ul>
+        </section>
+        <section className="config">
+          <ul className="config__list">
+            <li className="config__list--element">Configuración</li>
+          </ul>
+        </section>
+        </div>
+      </aside>
+      <section className="principal">
+        <article className="hero">
+          <h1 className="hero__title">Todos tus productos bajo control</h1>
+          <p className="hero__description">Deja a un lado las desordenadas libretas y crea tu propio almacén virtual. 
+            Controla el stock de tus productos, no te dejes atrás ningún pedido y toma notas de todo lo que necesites.
+            Ahora lo tienes más fácil que nunca con <strong>Tu Almacén Virtual</strong>!!
           </p>
-        </section>
-        <section className="reminder">
-          <p>No tienes recordatorios asignados a esta fecha</p>
-        </section>
-      </div>
-      <section className="sectionsLinks">
-        <Link className="sectionsLinks__a" to="/Notas" title="Notas">
-          <section className="sectionsLinks__notes sectionsLinks__all">
-            <p className="sectionsLinks__notes--text">notas</p>
-          </section>
-        </Link>
-        <Link
-          className="sectionsLinks__a"
-          to="/Pedidos"
-          title="Pedidos"
-        >
-          <section className="sectionsLinks__calendar sectionsLinks__all">
-            <p className="sectionsLinks__calendar--text">pedidos</p>
-          </section>
-        </Link>
-        <Link className="sectionsLinks__a" to="/Almacén" title="Almacen">
-          <section className="sectionsLinks__store sectionsLinks__all">
-            <p className="sectionsLinks__store--text">almacén</p>
-          </section>
-        </Link>
+        </article>
+        <article className="containerImg">
+          <img className="containerImg__img" src={contenedores}></img>
+        </article>
       </section>
     </main>
   );
