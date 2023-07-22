@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import lupa from '../images/lupa.png';
 import añadir from '../images/añadir.png';
 import ls from '../services/localStorage';
-import { Link } from 'react-router-dom';
+import GetAvatar from './GetAvatar';
 const Store = () => {
   const [showSearch, setShowSearch] = useState('collapsed');
   const [showAdd, setShowAdd] = useState('collapsed');
@@ -124,6 +124,10 @@ const Store = () => {
   const handleSubmit = (ev) => {
     ev.preventDefault();
   };
+  const productImg = product.img
+  const handleImg = (productImg) => {
+    handleNewProduct('image', productImg);
+  };
   return (
     <main>
       <section className="container">
@@ -221,16 +225,12 @@ const Store = () => {
                 value={product.ref}
               />
             </label>
-            <label className="sectionForms__addForm--label" id="img">
-              <span id="img">Imágen artículo:</span>
-              <input
-                type="file"
-                id="img"
-                className="sectionForms__addForm--input input_img"
-                onInput={handleNewProduct}
-                value={product.img}
-              ></input>
-            </label>
+            <GetAvatar
+              text="Subir foto de articulo"
+              avatar={product.img}
+              updateAvatar={handleImg}
+              id="img"
+            />
             <label className="sectionForms__addForm--label" id="categorie">
               <span id="categorie">En que categoría deseas colocarlo?</span>
               <input
