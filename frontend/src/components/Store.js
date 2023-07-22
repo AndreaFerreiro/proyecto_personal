@@ -44,7 +44,7 @@ const Store = () => {
       setRefSearch(search.toLowerCase());
     }
   };
-  const [range, setRange] = useState('50');
+  const [range, setRange] = useState('10');
   const handleRangeStock = (ev) => {
     const rangeStock = ev.target.value;
     setRange(rangeStock);
