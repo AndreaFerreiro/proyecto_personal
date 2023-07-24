@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import lupa from '../images/lupa.png';
 import añadir from '../images/añadir.png';
 import ls from '../services/localStorage';
+import api from '../services/api';
 import GetAvatar from './GetAvatar';
 const Store = () => {
   const [showSearch, setShowSearch] = useState('collapsed');
@@ -16,34 +17,52 @@ const Store = () => {
     categorie: '',
     stock: '',
   };
+  useEffect(() => {
+    api.getAllProductsApi()
+    .then(dataJson => {
+        setProductList(dataJson);
+    })
+  }, [])
+  console.log(productList)
   const [product, setProduct] = useState(element);
   useEffect(() => {
     ls.set('products', productList);
   }, [productList]);
   const handleNewProduct = (event) => {
     setProduct({ ...product, [event.target.id]: event.target.value });
+    api.sendToApi(product)
+      .then( (dataCreate) => {
+          if( dataCreate.success === true ) {
+            setProduct({
+              name: '',
+              ref: '',
+              img:'',
+              categorie: '',
+              stock: '',
+            });
+            setShowAdd( 'collapsed' );
+            api.getAllProductsApi()
+            .then( (dataGetProducts) => {
+                setProductList(dataGetProducts);
+            });
+          }else{
+            return('Ha habido un error')
+          }  
+      })
   };
   const handleAddProduct = (event) => {
     setProductList([...productList, product]);
-    setProduct({
-      name: '',
-      ref: '',
-      img:'',
-      categorie: '',
-      stock: '',
-    });
-    setShowAdd('collapsed');
   };
   const [nameSearch, setNameSearch] = useState('');
-  const [refSearch, setRefSearch] = useState('');
-  const handleSearch = (ev) => {
+  const [catSearch, setCatSearch] = useState('');
+  const handleSearchName = (ev) => {
     const search = ev.target.value;
-    if (ev.target.id === 'name') {
-      setNameSearch(search.toLowerCase());
-    } else {
-      setRefSearch(search.toLowerCase());
-    }
+    setNameSearch(search.toLowerCase());
   };
+  const handleSearchCat = (ev)=>{
+    const search = ev.target.value;
+    setCatSearch(search.toLowerCase());
+  }
   const [range, setRange] = useState('10');
   const handleRangeStock = (ev) => {
     const rangeStock = ev.target.value;
@@ -53,28 +72,30 @@ const Store = () => {
     .filter((eachProduct) =>
       eachProduct.name.toLowerCase().includes(nameSearch)
     )
-    .filter((eachProduct) => eachProduct.ref.toLowerCase().endsWith(refSearch));
+    .filter((eachProduct) => 
+      eachProduct.category.toLowerCase().includes(catSearch)
+    );
     //.filter((eachProduct) => parseInt(eachProduct.stock) <= parseInt(range));
   const renderList = () => {
     return filteredProducts.map((eachProduct) => {
       return (
-        <li className="data__containerlist--element">
+        <li key={eachProduct._id} className="data__containerlist--element">
           <article className={parseInt(eachProduct.stock)>parseInt(range)?"dataelement":"dataelement warning"}>
             <div className="dataelement__img">
               <img className="dataelement__img--src" src={eachProduct.img} />
             </div>
             <div className="dataelement__text">
               <p className="dataelement__text--title">{eachProduct.name}</p>
-              <div className="dataelement__text--ref">
+              {/*<div className="dataelement__text--ref">
                 <p className="dataelement__text--questionref">Ref:</p>
                 <p className="dataelement__text--answerref">
-                  {eachProduct.ref}
+                  {eachProduct._id}
                 </p>
-              </div>
+      </div>*/}
               <div className="dataelement__text--cat">
                 <p className="dataelement__text--questioncat">Categoría:</p>
                 <p className="dataelement__text--answercat">
-                  {eachProduct.categorie}
+                  {eachProduct.category}
                 </p>
               </div>
               <div className="dataelement__text--stock">
@@ -84,8 +105,8 @@ const Store = () => {
                 </p>
               </div>
               <div className='dataelement__emojis'>
-                <span className='dataelement__emojis--trash'>🗑</span>
-                <span className='dataelement__emojis--edit'>✏️</span>
+                <span id={eachProduct._id} className='dataelement__emojis--trash'>🗑</span>
+                <span id={eachProduct._id} className='dataelement__emojis--edit'>✏️</span>
               </div>
             </div>
           </article>
@@ -159,17 +180,14 @@ const Store = () => {
               placeholder="Artículo"
               id="name"
               value={nameSearch}
-              onInput={handleSearch}
+              onInput={handleSearchName}
             />
-            <input
-              className="input js_in_search_race sectionForms__form--input"
-              type="text"
-              name="ref"
-              placeholder="4 últimos dígitos"
-              id="ref"
-              value={refSearch}
-              onInput={handleSearch}
-            />
+            <select onSelect={handleSearchCat} className="input sectionForms__form--input">
+              <span>Categoría</span>
+              <option value="">Todos</option>
+              <option value="cat1">Cat1</option>
+              <option value="cat2">Cat2</option>
+            </select>
             <label htmlFor="range" className="sectionForms__form--label">
               <span>Stock máximo</span>
               <input

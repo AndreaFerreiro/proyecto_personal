@@ -17,7 +17,7 @@ const List = async (req, res)=>{
 }
 const Create = async (req, res) => {
     try{
-        const doc = await Products.create(req.body);
+    const doc = await Products.create(req.body);
     console.log(doc);
     res.json({success:true, id:doc._id});
     }
