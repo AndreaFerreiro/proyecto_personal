@@ -265,6 +265,7 @@ main{
     }
     .data{
         &__containerlist{
+            margin: 0 15px;
             &--element{
                 width: 15vw;
             }

@@ -14,7 +14,7 @@ const Store = () => {
     name: '',
     ref: '',
     img:'',
-    categorie: '',
+    category: '',
     stock: '',
   };
   useEffect(() => {
@@ -30,6 +30,9 @@ const Store = () => {
   }, [productList]);
   const handleNewProduct = (event) => {
     setProduct({ ...product, [event.target.id]: event.target.value });
+  };
+  const handleAddProduct = (event) => {
+    setProductList([...productList, product]);
     api.sendToApi(product)
       .then( (dataCreate) => {
           if( dataCreate.success === true ) {
@@ -37,7 +40,7 @@ const Store = () => {
               name: '',
               ref: '',
               img:'',
-              categorie: '',
+              category: '',
               stock: '',
             });
             setShowAdd( 'collapsed' );
@@ -49,9 +52,6 @@ const Store = () => {
             return('Ha habido un error')
           }  
       })
-  };
-  const handleAddProduct = (event) => {
-    setProductList([...productList, product]);
   };
   const [nameSearch, setNameSearch] = useState('');
   const [catSearch, setCatSearch] = useState('');
@@ -68,16 +68,17 @@ const Store = () => {
     const rangeStock = ev.target.value;
     setRange(rangeStock);
   };
+  /*
   const filteredProducts = productList
     .filter((eachProduct) =>
-      eachProduct.name.toLowerCase().includes(nameSearch)
+      eachProduct.name.includes(nameSearch)
     )
     .filter((eachProduct) => 
-      eachProduct.category.toLowerCase().includes(catSearch)
+      eachProduct.category.includes(catSearch)
     );
-    //.filter((eachProduct) => parseInt(eachProduct.stock) <= parseInt(range));
+    //.filter((eachProduct) => parseInt(eachProduct.stock) <= parseInt(range));*/
   const renderList = () => {
-    return filteredProducts.map((eachProduct) => {
+    return productList.map((eachProduct) => {
       return (
         <li key={eachProduct._id} className="data__containerlist--element">
           <article className={parseInt(eachProduct.stock)>parseInt(range)?"dataelement":"dataelement warning"}>
@@ -86,12 +87,12 @@ const Store = () => {
             </div>
             <div className="dataelement__text">
               <p className="dataelement__text--title">{eachProduct.name}</p>
-              {/*<div className="dataelement__text--ref">
+              <div className="dataelement__text--ref">
                 <p className="dataelement__text--questionref">Ref:</p>
                 <p className="dataelement__text--answerref">
-                  {eachProduct._id}
+                  {eachProduct.ref}
                 </p>
-      </div>*/}
+              </div>
               <div className="dataelement__text--cat">
                 <p className="dataelement__text--questioncat">Categoría:</p>
                 <p className="dataelement__text--answercat">
@@ -191,13 +192,14 @@ const Store = () => {
             <label htmlFor="range" className="sectionForms__form--label">
               <span>Stock máximo</span>
               <input
-                onClick={handleRangeStock}
+                onChange={handleRangeStock}
                 htmlFor="range"
                 type="range"
                 min="0"
                 max="100"
                 list="stockmarks"
                 className="sectionForms__form--range"
+                value={range}
               ></input>
               <datalist id="stockmarks">
                 <option value="0" label="0" />
@@ -249,19 +251,19 @@ const Store = () => {
               updateAvatar={handleImg}
               id="img"
             />
-            <label className="sectionForms__addForm--label" id="categorie">
-              <span id="categorie">En que categoría deseas colocarlo?</span>
+            <label className="sectionForms__addForm--label">
+              <span>En que categoría deseas colocarlo?</span>
               <input
                 className="sectionForms__addForm--input input_cat"
                 type="text"
                 placeholder="Categoria"
-                id="categorie"
-                name="categorie"
-                list="categirie"
+                id="category"
+                name="category"
+                list="categoryList"
                 onInput={handleNewProduct}
-                value={product.categorie}
+                value={product.category}
               />
-              <datalist id="categirie">
+              <datalist id="categoryList">
                 <option value="Cat1"></option>
                 <option value="Cat2"></option>
               </datalist>
