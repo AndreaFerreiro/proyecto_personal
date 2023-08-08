@@ -1,11 +1,20 @@
-# Tu almacén Virtual
-# Esta aplicación web cuenta con funcionalidades como el control de stock de un número de artículos ilimitado, la búsqueda de estos mediante nombre o referencia y laposibilidad de añadir cuantos se quiera mediante un pequeño formulario.
--Además, cuenta con una página en la que poder tomar notas y otra para anotar los pedidos
+# Individual project: Virtual StoreHouse
 
-# Mejoras pendientes:
--Botones para eliminar y/o editar productos de la lista
--Productos agrupados por catgeorías
--Checkbox en notas y botón para eliminar una o todas
--CheckBox en pedidos y posibilidad de marcar como "disponible en tineda"
--Login a la aplicación y página de perfil
--Base de datos con todos los productos (ahora mismo se almacenan en el localStorage)
+## Summary
+"Tú Almacén Virtual" is a web application where everyone will be able to control the stock of their StoreHouses.
+
+## How it works
+This project is still in process...
+
+## Owner: 👩🏻‍💻
+
+- **Andrea Ferreiro** @AndreaFerreiro
+
+## Tools: ⚒️
+
+- `HTML, CSS, SASS, JS, React Framework, JSX, EJS, NodeJS `
+- `Vs Code`
+- `GitHub` `Git`
+- `MongoDB` 
+
+## I hope you enjoy it!!
