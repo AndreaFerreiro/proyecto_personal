@@ -23,3 +23,11 @@ a{
     text-decoration: none;
     color: $white-four;
 }
+.hiddenNav{
+    display: none;
+}
+@media screen and (max-width: 764px) {
+    .hiddenNav{
+        display: flex;
+    } 
+}

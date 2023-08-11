@@ -25,9 +25,9 @@ main{
         }
         &--form{
             display: flex;
-        flex-direction: column;
-        gap: 10px;
-        align-items: center;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
         }
     }
     &__form{
@@ -83,6 +83,7 @@ main{
             border-radius: 20px;
             text-transform: uppercase;
             font-size: 12px;
+            cursor: pointer;
         }
         &--reset{
             color: $gunmetal;
@@ -99,6 +100,7 @@ main{
             align-items: center;
             margin-bottom: 20px;
             width: 75px;
+            cursor: pointer;
             &--trash{
                 padding-right: 8px;
                 font-size: 10px;
@@ -136,14 +138,21 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
+    &__title{
+        font-size: 20px;
+        margin-bottom: 40px;
+        margin-top: 30px;
+    }
     &__containerlist{
         &--element{
-            border: 1px solid black;
+            box-shadow: 0 1px 1px rgba(rgb(3, 3, 3), .15),
+                        0 3px 10px rgba(rgb(3, 3, 3), .15),
+                        0 3px 20px rgba(rgb(5, 5, 5), .35);
             list-style: none;
             width: 80vw;
             height: fit-content;
             margin-bottom: 20px;
-            background-color: $white-four;
+            background-color: white;
             border-radius: 5px;
         }
     }
@@ -167,6 +176,7 @@ main{
         font-size: 14px;
         &--title{
             font-weight: bold;
+            text-transform: capitalize;
         }
         &--ref{
             display: flex;
@@ -183,7 +193,14 @@ main{
     }
     &__emojis{
         display: flex;
-        gap: 10px;
+        gap: 20px;
+        cursor: pointer;
+    }
+    &__emojis--trash:hover{
+        -webkit-transform:scale(1.7);transform:scale(1.2);
+    }
+    &__emojis--edit:hover{
+        -webkit-transform:scale(1.7);transform:scale(1.2);
     }
 }
 .collapsed{
@@ -207,7 +224,7 @@ main{
             align-items: center;
             justify-content: center;
             &--element{
-                width: 20vw;
+                width: 27vw;
             }
         }
     }
@@ -267,13 +284,13 @@ main{
         &__containerlist{
             margin: 0 15px;
             &--element{
-                width: 15vw;
+                width: 230px;
             }
         }
     }
     .dataelement{
         &__emojis{
-            //transform: translateX(970px);
+            margin-top: 20px;
         }
     }
 }

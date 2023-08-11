@@ -3,7 +3,7 @@ import '../styles/core/reset.scss';
 import '../styles/core/variables.scss';
 import obj from '../images/obj.jpeg';
 import { useLocation, matchPath } from 'react-router';
-import { Form, Link, Route, Routes, useParams } from 'react-router-dom';
+import { Route, Routes, useParams } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import Landing from './Landing';
@@ -14,11 +14,16 @@ import Orders from './Orders';
 import { useEffect, useState } from 'react';
 import Detail from './detail';
 function App() {
-  
-  
+  const {pathname} = useLocation();
+  let path = pathname === '/Inicio';
+  const [hideNav, setHideNav] = useState(path);
+  useEffect(() => {
+    let path = pathname === '/Inicio';
+    setHideNav(path)
+  },[pathname]);
   return (
     <div>
-      <Header />
+      <Header hideNav={hideNav}/>
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/Inicio" element={<Inicio />} />

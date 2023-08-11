@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import defaultProduct from '../images/obj.jpeg';
-//import '../styles/layout/GetAvatar.scss';
+import '../styles/layout/getAvatar.scss';
 
 function GetAvatar({avatar=defaultProduct, updateAvatar, text='Get avatar!'}) {
   const fr = new FileReader();

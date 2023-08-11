@@ -106,7 +106,7 @@ const Store = () => {
                 </p>
               </div>
               <div className='dataelement__emojis'>
-                <span id={eachProduct._id} className='dataelement__emojis--trash'>🗑</span>
+                <span id={eachProduct._id} className='dataelement__emojis--trash' onClick={deleteProduct()}>🗑</span>
                 <span id={eachProduct._id} className='dataelement__emojis--edit'>✏️</span>
               </div>
             </div>
@@ -150,6 +150,9 @@ const Store = () => {
   const handleImg = (productImg) => {
     handleNewProduct('image', productImg);
   };
+  const deleteProduct = () => {
+    api.deleteFromApi()
+  }
   return (
     <main>
       <section className="container">
@@ -184,7 +187,6 @@ const Store = () => {
               onInput={handleSearchName}
             />
             <select onSelect={handleSearchCat} className="input sectionForms__form--input">
-              <span>Categoría</span>
               <option value="">Todos</option>
               <option value="cat1">Cat1</option>
               <option value="cat2">Cat2</option>
@@ -297,6 +299,7 @@ const Store = () => {
           </form>
         </div>
       </section>
+      {/*
       <section className="title-categories">
         <p className="categories__title">categorias</p>
       </section>
@@ -319,8 +322,9 @@ const Store = () => {
         <article className="categories__cat6 categories__cat">
           <p>CAT6</p>
         </article>
-      </section>
+  </section>*/}
       <section className="data">
+        <h4 className='data__title'>Productos almacenados</h4>
         <ul className="data__containerlist">{renderList()}</ul>
       </section>
     </main>

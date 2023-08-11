@@ -24,18 +24,22 @@
 }
 .formadd{
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     &__label{
         display: flex;
         flex-direction: column;
         align-items: center;
+        gap: 10px;
     }
     &__submit{
         border: 1px solid black;
         border-radius: 10px;
         padding: 5px;
+        width: 80%;
+        margin-top: 10px;
     }
 }
 .sectionlist{
@@ -73,4 +77,17 @@
 }
 .collapsed{
     display: none;
+}
+@media screen and (min-width:764px) {
+    .formadd{
+        gap: 30px;
+    }
+    .formadd__submit{
+        width: 40%;
+    }
+}
+@media screen and (min-width:1024px) {
+    .formadd__submit{
+        width: 15%;
+    }
 }

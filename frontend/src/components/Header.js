@@ -1,16 +1,15 @@
 import Logo2 from '../images/LogoAlmacenBlanco.png';
 import '../styles/layout/header.scss';
 import { Link, useLocation } from 'react-router-dom';
-const Header = () => {
+const Header = (props) => {
   const { pathname } = useLocation();
-
   return (
     <header className="header">
       <Link to="/" title="Inicio">
         <img className="header__logo" src={Logo2} />
       </Link>
       {pathname !== '/' && (
-        <nav>
+        <nav className={props.hideNav ? 'hiddenNav' : ''}>
           <ul className="header__list">
             <Link to="/Almacén" title="Almacén">
               <li className="header__list--element">almacén</li>
