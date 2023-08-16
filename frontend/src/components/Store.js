@@ -18,7 +18,7 @@ const Store = () => {
     stock: '',
   };
   useEffect(() => {
-    api.getAllProductsApi()
+    api.getAllProducts()
     .then(dataJson => {
         setProductList(dataJson);
     })
@@ -33,7 +33,7 @@ const Store = () => {
   };
   const handleAddProduct = (event) => {
     setProductList([...productList, product]);
-    api.sendToApi(product)
+    api.addProduct(product)
       .then( (dataCreate) => {
           if( dataCreate.success === true ) {
             setProduct({
@@ -44,7 +44,7 @@ const Store = () => {
               stock: '',
             });
             setShowAdd( 'collapsed' );
-            api.getAllProductsApi()
+            api.getAllProducts()
             .then( (dataGetProducts) => {
                 setProductList(dataGetProducts);
             });
